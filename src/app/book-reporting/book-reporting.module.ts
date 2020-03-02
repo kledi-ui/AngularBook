@@ -13,10 +13,11 @@ import { ReportItemComponent } from './pages/report-item/report-item.component';
 import { ChartsModule } from 'ng2-charts';
 import { BarchartComponent } from './components/barchart/barchart.component';
 import { FieldPickerComponent } from './components/field-picker/field-picker.component';
+import { FieldpickerupdateComponent } from './components/fieldpickerupdate/fieldpickerupdate.component';
 
 
 @NgModule({
-  declarations: [ReportingDashboardComponent, CreatereportComponent, UpdatereportComponent, DeletereportComponent, ReportItemComponent, BarchartComponent, FieldPickerComponent],
+  declarations: [ReportingDashboardComponent, CreatereportComponent, UpdatereportComponent, DeletereportComponent, ReportItemComponent, BarchartComponent, FieldPickerComponent, FieldpickerupdateComponent],
   imports: [
     BrowserModule,
     CommonModule,

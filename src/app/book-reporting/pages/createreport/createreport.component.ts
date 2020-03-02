@@ -16,8 +16,6 @@ export class CreatereportComponent implements  OnInit {
 
   @ViewChild('fields') fields: FieldPickerComponent ;
 
-
-
   createForm: FormGroup = this.builder.group({
     title: this.title,
     description: this.description,
@@ -37,26 +35,14 @@ export class CreatereportComponent implements  OnInit {
 
     // construct new book object
 
-    let newReport = {}
-
-    if (this.createForm.value.category === 'Table') {
-
-      newReport = {
+      let newReport = {
         id: id,
         reportTitle: this.createForm.value.title,
         reportDescription: this.createForm.value.description,
         reportCategory: this.createForm.value.category,
-        selectedFields: this.fields.selectedFields
+        selectedFields: this.createForm.value.category === 'Table' ? this.fields.selectedFields : []
       }
-    } else {
-      newReport = {
-        id: id,
-        reportTitle: this.createForm.value.title,
-        reportDescription: this.createForm.value.description,
-        reportCategory: this.createForm.value.category,
-        selectedFields: []
-      }
-    }
+  
     // Send object to service for subbmit
     this.reportService.addReport(newReport);
   }
