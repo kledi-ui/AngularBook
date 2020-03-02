@@ -1,0 +1,16 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header bg-danger text-white">
+    <h4 class="modal-title" id="modal-basic-title">Delete Record</h4>
+    <button type="button" class="close text-white" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are u sure you want to delete this record ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="onDelete()">Yes Proceed</button>
+  </div>
+</ng-template>
+
+<button class="btn  btn-danger" (click)="open(content)">Delete</button>

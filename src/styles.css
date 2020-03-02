@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+#example_info {
+  display: none;
+}
+#example_paginate {
+    float: none;
+    text-align: center;
+    padding: 1rem 0;
+}
+.active-link {
+  background:#4FA9DC !important;
+}

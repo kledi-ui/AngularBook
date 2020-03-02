@@ -1,0 +1,74 @@
+<div class="container mt-3">
+    <div class="display-4 mb-3">
+        Update Report
+    </div>
+    <div class="btn btn-secondary mb-3" (click)='goHome()'>
+       Back
+    </div>
+
+    <form [formGroup]="updateForm" (ngSubmit)="updateReport()">
+      <div class="form-group" >
+        <label class="font-weight-bold">Titulli</label>
+        <input  type="text"  class="form-control" name="reportTitle" [formControl]="title" value="title" required >
+        <div class="alert alert-danger mt-2" [hidden]="title.valid || title.untouched">
+          Report title is required
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label class="font-weight-bold">Pershkrimi</label>
+        <input type="text" class="form-control" name="reportDescription" [formControl]="description" value="description" required>
+        <div class="alert alert-danger mt-2" [hidden]="description.valid || description.untouched">
+          Please check Report description
+        </div>
+      </div>
+  
+        <div class="form-group">
+          <label class="font-weight-bold" >Kategoria</label>
+          <select class="form-control" name="category" [formControl]="category"  value="category" required>
+              <option>Table</option>
+              <option>Chart</option>
+
+
+          </select>
+          <div class="alert alert-danger mt-2" [hidden]="category.valid || category.untouched">
+            Please choose a category
+          </div>
+          
+        </div>
+                 <!-- Select fields -->
+                 <div class="row my-3" *ngIf="updateForm.value.category == 'Table'">
+                  <div class="col">
+                    <div class="text-white bg-primary p-3">Available Fields</div>
+                    <div class="form-group my-3" >
+                      <input  type="text"  class="form-control" placeholder="Search by role name" name="_listFilter" (input)="performFilter($event.target.value)">
+                    </div>
+                   <div class="d-flex justify-content-between mb-2" *ngFor="let field of filteredInitFields">
+                     <div>
+                      {{field}}
+                     </div>
+                    <div class="btn btn-dark" (click)="addField(field)">
+                      +
+                    </div>
+                   </div>
+                  </div>
+                  <div class="col">
+                    <div class="text-white bg-primary p-3">Selected Fields</div>
+                    <div class="form-group my-3" >          
+                      <input  type="text"  class="form-control" placeholder="Search " (input)="performSelectedFilter($event.target.value)">
+                    </div>
+                    <div class="d-flex justify-content-between mb-2" *ngFor="let field of filteredSelectedFields">
+                      <div>
+                       {{field}}
+                      </div>
+                     <div class="btn btn-danger" (click)="removeField(field)">
+                       -
+                     </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of select form -->
+        
+        <input type="submit" class="btn btn-warning" value="Update Record" [disabled]="!updateForm.valid"/>
+      </form>
+</div>

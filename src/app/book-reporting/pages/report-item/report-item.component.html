@@ -1,0 +1,49 @@
+
+<div class="p-4">
+    <div class="btn btn-secondary mb-3" (click)='goHome()'>
+        Back
+     </div>
+   
+    <div *ngIf="category === 'Table'">
+        <h2 class="mb-3">{{title}}</h2>
+        <h4 class="py-5">{{description}}</h4>
+        
+        <table id="example2" datatable [dtOptions]="dtOptions" class="table" >
+            <thead>
+              <tr>
+                <th *ngFor="let field of selectedFields">{{field}}</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of listOfBook">
+                  <td *ngFor="let field of selectedFields">{{
+                    field === 'Autori' ? book.bookAuthor
+                     : 
+                     field === 'Titulli' ? book.bookTitle
+                      : 
+                      field === 'Data publikimi' ? book.publishDate 
+                       : 
+                      field === 'Pershkrimi' ? book.bookDescription 
+                      : 
+                     book.bookCategory}}</td>
+                </tr>
+
+              
+            </tbody>
+          </table>
+    </div>
+
+    <div *ngIf="category==='Chart'">
+        <div class="container">
+            <app-barchart>
+
+            </app-barchart>
+        </div>
+      
+    </div>
+
+      
+  </div>
+  
+  
+  

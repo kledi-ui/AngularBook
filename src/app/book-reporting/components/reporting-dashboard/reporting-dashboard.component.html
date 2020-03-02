@@ -1,0 +1,29 @@
+<div class="p-4">
+    <a class="btn btn-primary mb-3 text-white" [routerLink]="['/newreport']">
+      Create
+    </a>
+      <table id="example" datatable [dtOptions]="dtOptions" class="table" >
+          <thead>
+            <tr>
+              <th>Titulli</th>
+              <th>Pershkrimi</th>
+              <th>Kategoria</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let report of listRaports">
+                <td><a href="/" [routerLink]="['/reporting',report.id]">{{report.reportTitle |uppercase }}</a></td>
+                <td>{{report.reportDescription | lowercase }}</td>
+                <td>{{report.reportCategory | titlecase  }}</td>
+                <td> <a class="btn btn-warning mr-2"  [routerLink]="['/updatereport',report.id]">Update</a>  
+                  <app-deletereport [report]="report" (filteredArray)='filteredArray($event)'></app-deletereport>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+  
+  </div>
+  
+  
+  
