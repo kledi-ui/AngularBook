@@ -101,6 +101,7 @@ export class UpdatereportComponent implements OnInit {
         reportTitle: this.updateForm.value.title,
         reportDescription: this.updateForm.value.description,
         reportCategory: this.updateForm.value.category,
+        selectedFields: []
       }
     }
 

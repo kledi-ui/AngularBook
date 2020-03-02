@@ -19,15 +19,6 @@ export class ReportItemComponent implements OnInit {
   selectedFields: [];
   listOfBook:IBook[];
 
-  // book object
-  // bookTitle:string;
-  // bookDescription:string;
-  // bookAuthor:string;
-  // publishDate:string;
-  // bookCategory:string;
-
-
-
   @ViewChild(DataTableDirective, { static: false })
   dataElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
@@ -58,8 +49,6 @@ export class ReportItemComponent implements OnInit {
     };
 
     // Get full list of Books
-
-    
 
     this.listOfBook=this.bookService.getAllBooks();
 

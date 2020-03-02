@@ -17,13 +17,13 @@
             <tbody>
                 <tr *ngFor="let book of listOfBook">
                   <td *ngFor="let field of selectedFields">{{
-                    field === 'Autori' ? book.bookAuthor
+                    field === 'Autori' ? (book.bookAuthor | titlecase)
                      : 
-                     field === 'Titulli' ? book.bookTitle
+                     field === 'Titulli' ? (book.bookTitle | uppercase)
                       : 
-                      field === 'Data publikimi' ? book.publishDate 
+                      field === 'Data publikimi' ? (book.publishDate | date:'shortDate')
                        : 
-                      field === 'Pershkrimi' ? book.bookDescription 
+                      field === 'Pershkrimi' ? (book.bookDescription | lowercase)
                       : 
                      book.bookCategory}}</td>
                 </tr>
